@@ -14,13 +14,31 @@
 	</head>
 
 	<body>
-	<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-		<df-messenger
-		  chat-icon="./img/Doctor.jpg"
-		  intent="WELCOME"
-		  chat-title="(COVID-19)InfoBot"
-		  agent-id="0b858ab0-a4a6-49ab-a4f3-842c1bece3cb"
-		  language-code="en"
-		></df-messenger>
+	<!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="1509569906034914"
+  theme_color="#7646ff"
+  logged_in_greeting="স্বাগতম! ডিনেট করোনা ইনফোবট। কিভাবে আমি আপনাকে সাহায্য করতে পারি?"
+  logged_out_greeting="স্বাগতম! ডিনেট করোনা ইনফোবট। কিভাবে আমি আপনাকে সাহায্য করতে পারি?">
+      </div>
 	</body>
 </html>
